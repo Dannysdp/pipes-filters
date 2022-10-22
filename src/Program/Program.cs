@@ -20,6 +20,8 @@ namespace CompAndDel
             picture = greyScale.Send(picture);
             
             provider.SavePicture(picture, "./luke.jpg");
+
+
         }
     }
 }
