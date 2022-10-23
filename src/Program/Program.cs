@@ -16,8 +16,10 @@ namespace CompAndDel
             PipeSerial negativePipe = new PipeSerial(new FilterNegative(), nullPipe);
             
             PipeSerial greyScale = new PipeSerial(new FilterGreyscale(), negativePipe);
+
+            PipePost postTwitter = new PipePost(greyScale, "test", "imagenPrueba");
             
-            picture = greyScale.Send(picture);
+            picture = postTwitter.Send(picture);
             
             provider.SavePicture(picture, "./luke.jpg");
         }
